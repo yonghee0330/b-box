@@ -323,9 +323,10 @@
 
     .recruit-thumb {
       width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-      object-position: center 35%;
+      height: auto;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
+      object-position: center;
       display: block;
       border-bottom: 2px solid var(--bbox-brown);
       background: #EFE8DC;
@@ -990,7 +991,9 @@
 <div class="toast" id="toast"></div>
 
 <script>
-  // 동일 구글 시트(16wwnZPAhANy4PictcYA02Qe1E-Si7Q5HqE4RCvqlJmU)에 연결된 Apps Script
+  // [구글 시트] 9월 비박스 신청자 탭에 연결
+  // https://docs.google.com/spreadsheets/d/16wwnZPAhANy4PictcYA02Qe1E-Si7Q5HqE4RCvqlJmU
+  // Apps Script를 시트에 다시 배포한 뒤, 새 웹앱 URL로 교체하세요. (apps-script/september-Code.gs)
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyrb6G2rm0FchLZj2mIDvg5WmbLJtPw2auMdv-eWAGifG___cmloqghme1uFSjyOOQp/exec';
   const DEFAULT_CAPACITY = 18;
 
@@ -1116,34 +1119,20 @@
     };
 
     try {
-      const response = await fetch(SCRIPT_URL, {
+      // Apps Script 웹앱: text/plain + no-cors 가 시트 적재에 가장 안정적
+      await fetch(SCRIPT_URL, {
         method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(data),
       });
 
-      if (!response.ok) {
-        throw new Error('submit-failed');
-      }
-
-      const resultText = await response.text();
-      if (resultText) {
-        let result = null;
-        try {
-          result = JSON.parse(resultText);
-        } catch (err) {
-          result = null;
-        }
-        if (result && (result.ok === false || result.success === false || result.error)) {
-          throw new Error('submit-failed');
-        }
-      }
-
       showSuccess();
-      loadCapacity();
+      setTimeout(loadCapacity, 1500);
     } catch (err) {
       submitBtn.disabled = false;
       submitBtn.textContent = '신청서 제출하기';
-      showToast(err.message === 'submit-failed' ? '접수 중 오류가 발생했어요.' : '잠시 후 다시 시도해주세요');
+      showToast('잠시 후 다시 시도해주세요');
     }
   });
 
