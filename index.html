@@ -8,15 +8,15 @@
     @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@400;600;700&display=swap');
 
     :root {
-      --bbox-red: #E94B3C;
-      --bbox-brown: #3A2A1F;
-      --bbox-cream: #F4EFE6;
-      --bbox-paper: #FFFCF5;
-      --bbox-yellow: #FFE566;
+      --bbox-red: #E85A3C;
+      --bbox-brown: #3F2C22;
+      --bbox-cream: #F3EEE4;
+      --bbox-paper: #FAF7F0;
+      --bbox-yellow: #F5E84A;
       --bbox-kraft: #C4A484;
       --bbox-muted: #6B5748;
       --bbox-orange: #D35400;
-      --shadow-soft: 0 18px 48px rgba(58, 42, 31, .16);
+      --shadow-soft: 0 18px 48px rgba(63, 44, 34, .16);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -100,8 +100,8 @@
     .hero {
       padding: 56px 0 64px;
       background:
-        radial-gradient(circle at 92% 8%, rgba(255, 229, 102, .55) 0 120px, transparent 122px),
-        radial-gradient(circle at 0% 100%, rgba(233, 75, 60, .12) 0 180px, transparent 182px),
+        radial-gradient(circle at 92% 8%, rgba(245, 232, 74, .45) 0 120px, transparent 122px),
+        radial-gradient(circle at 0% 100%, rgba(232, 90, 60, .12) 0 180px, transparent 182px),
         var(--bbox-cream);
       border-bottom: 2px solid var(--bbox-brown);
     }
@@ -165,7 +165,8 @@
       padding: 10px 14px;
       font-weight: 900;
       font-size: 14px;
-      box-shadow: 4px 4px 0 rgba(58, 42, 31, .15);
+      color: var(--bbox-brown);
+      box-shadow: 4px 4px 0 rgba(63, 44, 34, .15);
     }
 
     .hero-chip.red {
@@ -216,30 +217,68 @@
     .btn-primary { background: var(--bbox-red); color: #fff; }
     .btn-secondary { background: var(--bbox-paper); color: var(--bbox-brown); }
 
+    .poster-showcase {
+      justify-self: end;
+      width: min(100%, 420px);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
     .poster-frame {
       position: relative;
-      width: min(100%, 420px);
-      aspect-ratio: 3 / 4;
-      justify-self: end;
+      width: 100%;
+      aspect-ratio: 4 / 5;
       border: 3px solid var(--bbox-brown);
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: var(--shadow-soft), 10px 10px 0 rgba(58, 42, 31, .18);
-      background: var(--bbox-paper);
+      box-shadow: var(--shadow-soft), 10px 10px 0 rgba(63, 44, 34, .18);
+      background: #EFE8DC;
       transform: rotate(1deg);
     }
 
-    .poster-frame img {
+    .poster-frame .poster-slide {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center top;
       opacity: 0;
-      transition: opacity 900ms ease;
+      visibility: hidden;
+      transition: opacity .8s ease;
+      z-index: 0;
+      background: #EFE8DC;
     }
 
-    .poster-frame img.active { opacity: 1; }
+    .poster-frame .poster-slide.is-active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 1;
+    }
+
+    .poster-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .poster-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--bbox-brown);
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .poster-dot.is-active {
+      background: var(--bbox-red);
+      border-color: var(--bbox-red);
+    }
 
     /* ── ABOUT ── */
     .about {
@@ -274,12 +313,30 @@
       background: var(--bbox-paper);
       border: 2px solid var(--bbox-brown);
       border-radius: 18px;
-      padding: 24px;
-      box-shadow: 6px 6px 0 rgba(58, 42, 31, .1);
+      padding: 0;
+      box-shadow: 6px 6px 0 rgba(63, 44, 34, .1);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .recruit-thumb {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+      border-bottom: 2px solid var(--bbox-brown);
+      background: #EFE8DC;
+    }
+
+    .recruit-body {
+      padding: 20px 22px 22px;
       display: flex;
       flex-direction: column;
       gap: 10px;
-      min-height: 210px;
+      flex: 1;
     }
 
     .recruit-card .badge {
@@ -296,7 +353,7 @@
 
     .recruit-card h3 {
       font-family: 'Black Han Sans', sans-serif;
-      font-size: 28px;
+      font-size: 26px;
       letter-spacing: -.5px;
       color: var(--bbox-red);
     }
@@ -622,7 +679,7 @@
         grid-template-columns: 1fr;
       }
 
-      .poster-frame {
+      .poster-showcase {
         justify-self: start;
         width: min(100%, 380px);
       }
@@ -690,12 +747,15 @@
       </div>
     </div>
 
-    <div class="poster-frame" aria-label="b.box day 9월 포스터">
-      <img src="images/posters/sept/poster-main.png" alt="b.box day BOOK &amp; FLEA MARKET" class="active" />
-      <img src="images/posters/sept/poster-seller.png" alt="비박스셀러 모집 포스터" />
-      <img src="images/posters/sept/poster-sponsor.png" alt="경품후원자 모집 포스터" />
-      <img src="images/posters/sept/poster-event.png" alt="이벤트·공연 모집 포스터" />
-      <img src="images/posters/sept/poster-class.png" alt="체험클래스 모집 포스터" />
+    <div class="poster-showcase">
+      <div class="poster-frame" id="posterFrame" aria-label="b.box day 9월 포스터">
+        <img class="poster-slide is-active" src="images/posters/poster-main.png" alt="b.box day BOOK &amp; FLEA MARKET" />
+        <img class="poster-slide" src="images/posters/poster-seller.png" alt="비박스셀러 모집 포스터" />
+        <img class="poster-slide" src="images/posters/poster-sponsor.png" alt="경품후원자 모집 포스터" />
+        <img class="poster-slide" src="images/posters/poster-event.png" alt="이벤트·공연 모집 포스터" />
+        <img class="poster-slide" src="images/posters/poster-class.png" alt="체험클래스 모집 포스터" />
+      </div>
+      <div class="poster-dots" id="posterDots" aria-label="포스터 슬라이드"></div>
     </div>
   </div>
 </section>
@@ -729,28 +789,40 @@
     <p class="section-subtitle">포스터 4종의 모집 유형</p>
     <div class="recruit-grid">
       <article class="recruit-card">
-        <span class="badge">18 team</span>
-        <h3>비박스셀러 모집</h3>
-        <p>점주님의 0.1평서점을 박스 하나에 담아 판매하세요! 외부 셀러도 참가 가능합니다.</p>
-        <div class="meta">도서 · 문구 · 굿즈 · 핸드메이드 · 빈티지</div>
+        <img class="recruit-thumb" src="images/posters/poster-seller.png" alt="비박스셀러 모집" />
+        <div class="recruit-body">
+          <span class="badge">18 team</span>
+          <h3>비박스셀러 모집</h3>
+          <p>점주님의 0.1평서점을 박스 하나에 담아 판매하세요! 외부 셀러도 참가 가능합니다.</p>
+          <div class="meta">도서 · 문구 · 굿즈 · 핸드메이드 · 빈티지</div>
+        </div>
       </article>
       <article class="recruit-card">
-        <span class="badge">경품</span>
-        <h3>경품후원자 모집</h3>
-        <p>모두 함께 즐길 수 있는 유용하고 의미있는 물품을 후원해주세요.</p>
-        <div class="meta">행사 방문객을 위한 경품 지원</div>
+        <img class="recruit-thumb" src="images/posters/poster-sponsor.png" alt="경품후원자 모집" />
+        <div class="recruit-body">
+          <span class="badge">경품</span>
+          <h3>경품후원자 모집</h3>
+          <p>모두 함께 즐길 수 있는 유용하고 의미있는 물품을 후원해주세요.</p>
+          <div class="meta">행사 방문객을 위한 경품 지원</div>
+        </div>
       </article>
       <article class="recruit-card">
-        <span class="badge">공연</span>
-        <h3>이벤트·공연 모집</h3>
-        <p>점주님의 끼와 유쾌함을 나눠주세요! 작은 무대와 이벤트를 함께 만듭니다.</p>
-        <div class="meta">음악 · 낭독 · 퍼포먼스 등</div>
+        <img class="recruit-thumb" src="images/posters/poster-event.png" alt="이벤트·공연 모집" />
+        <div class="recruit-body">
+          <span class="badge">공연</span>
+          <h3>이벤트·공연 모집</h3>
+          <p>점주님의 끼와 유쾌함을 나눠주세요! 작은 무대와 이벤트를 함께 만듭니다.</p>
+          <div class="meta">음악 · 낭독 · 퍼포먼스 등</div>
+        </div>
       </article>
       <article class="recruit-card">
-        <span class="badge">3 team</span>
-        <h3>체험클래스 모집</h3>
-        <p>세미나실을 활용한 드로잉, 미니북·인형만들기 등 유/무료 체험클래스를 개최하실 분.</p>
-        <div class="meta">점주님이 좋아하고 잘하는 것을 함께 나눠주세요!</div>
+        <img class="recruit-thumb" src="images/posters/poster-class.png" alt="체험클래스 모집" />
+        <div class="recruit-body">
+          <span class="badge">3 team</span>
+          <h3>체험클래스 모집</h3>
+          <p>세미나실을 활용한 드로잉, 미니북·인형만들기 등 유/무료 체험클래스를 개최하실 분.</p>
+          <div class="meta">점주님이 좋아하고 잘하는 것을 함께 나눠주세요!</div>
+        </div>
       </article>
     </div>
   </div>
@@ -922,13 +994,37 @@
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyrb6G2rm0FchLZj2mIDvg5WmbLJtPw2auMdv-eWAGifG___cmloqghme1uFSjyOOQp/exec';
   const DEFAULT_CAPACITY = 18;
 
-  const posters = document.querySelectorAll('.poster-frame img');
+  const slides = [...document.querySelectorAll('#posterFrame .poster-slide')];
+  const dotsWrap = document.getElementById('posterDots');
   let activePoster = 0;
-  setInterval(() => {
-    posters[activePoster].classList.remove('active');
-    activePoster = (activePoster + 1) % posters.length;
-    posters[activePoster].classList.add('active');
-  }, 4000);
+  let posterTimer = null;
+
+  slides.forEach((_, index) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'poster-dot' + (index === 0 ? ' is-active' : '');
+    dot.setAttribute('aria-label', `포스터 ${index + 1}`);
+    dot.addEventListener('click', () => showPoster(index, true));
+    dotsWrap.appendChild(dot);
+  });
+
+  const dots = [...dotsWrap.querySelectorAll('.poster-dot')];
+
+  function showPoster(index, restart) {
+    slides[activePoster].classList.remove('is-active');
+    dots[activePoster].classList.remove('is-active');
+    activePoster = (index + slides.length) % slides.length;
+    slides[activePoster].classList.add('is-active');
+    dots[activePoster].classList.add('is-active');
+    if (restart) startPosterTimer();
+  }
+
+  function startPosterTimer() {
+    clearInterval(posterTimer);
+    posterTimer = setInterval(() => showPoster(activePoster + 1), 4000);
+  }
+
+  if (slides.length > 1) startPosterTimer();
 
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
