@@ -3,31 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>b.box day — 0.1평서점 마켓 & 점주 교류회</title>
+  <title>b.box day — BOOK & FLEA MARKET | 2026.9.5</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@400;600;700&display=swap');
 
     :root {
       --bbox-red: #E94B3C;
-      --bbox-blue: #2747C8;
-      --bbox-cream: #F4E8D0;
-      --bbox-black: #1a1a1a;
-      --bbox-white: #FFFDF6;
-      --bbox-yellow: #FFD93D;
-      --bbox-kraft: #C9A46A;
-      --bbox-muted: #725f49;
-      --bbox-line: rgba(26, 26, 26, .16);
-      --shadow-soft: 0 22px 60px rgba(26, 26, 26, .18);
+      --bbox-brown: #3A2A1F;
+      --bbox-cream: #F4EFE6;
+      --bbox-paper: #FFFCF5;
+      --bbox-yellow: #FFE566;
+      --bbox-kraft: #C4A484;
+      --bbox-muted: #6B5748;
+      --bbox-orange: #D35400;
+      --shadow-soft: 0 18px 48px rgba(58, 42, 31, .16);
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
       font-family: 'Noto Sans KR', sans-serif;
       background: var(--bbox-cream);
-      color: var(--bbox-black);
+      color: var(--bbox-brown);
       overflow-x: hidden;
       word-break: keep-all;
     }
@@ -35,15 +33,15 @@
     a { color: inherit; }
 
     nav {
-      padding: 18px 24px;
+      padding: 16px 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid var(--bbox-black);
-      background: var(--bbox-white);
+      border-bottom: 2px solid var(--bbox-brown);
+      background: var(--bbox-paper);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 20;
     }
 
     .nav-logo {
@@ -56,7 +54,7 @@
 
     .nav-badge {
       background: var(--bbox-yellow);
-      border: 2px solid var(--bbox-black);
+      border: 2px solid var(--bbox-brown);
       padding: 6px 14px;
       border-radius: 999px;
       font-size: 12px;
@@ -64,7 +62,7 @@
     }
 
     .section-inner {
-      width: min(1120px, calc(100% - 48px));
+      width: min(1100px, calc(100% - 48px));
       margin: 0 auto;
     }
 
@@ -72,7 +70,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--bbox-black);
+      background: var(--bbox-brown);
       color: var(--bbox-yellow);
       border-radius: 999px;
       padding: 6px 14px;
@@ -85,104 +83,110 @@
 
     .section-title {
       font-family: 'Black Han Sans', sans-serif;
-      font-size: clamp(34px, 7vw, 58px);
-      line-height: .98;
-      letter-spacing: -1.5px;
+      font-size: clamp(32px, 6.5vw, 54px);
+      line-height: 1;
+      letter-spacing: -1.2px;
       margin-bottom: 14px;
     }
 
     .section-subtitle {
-      color: var(--bbox-blue);
-      font-size: clamp(17px, 3vw, 22px);
+      color: var(--bbox-red);
+      font-size: clamp(16px, 2.8vw, 20px);
       font-weight: 900;
       margin-bottom: 24px;
     }
 
+    /* ── HERO ── */
     .hero {
+      padding: 56px 0 64px;
       background:
-        radial-gradient(circle at 88% 12%, rgba(255, 217, 61, .42) 0 130px, transparent 132px),
-        radial-gradient(circle at 0 100%, rgba(39, 71, 200, .18) 0 190px, transparent 192px),
-        var(--bbox-red);
-      border-bottom: 3px solid var(--bbox-black);
-      padding: 64px 0;
-      position: relative;
-      overflow: hidden;
+        radial-gradient(circle at 92% 8%, rgba(255, 229, 102, .55) 0 120px, transparent 122px),
+        radial-gradient(circle at 0% 100%, rgba(233, 75, 60, .12) 0 180px, transparent 182px),
+        var(--bbox-cream);
+      border-bottom: 2px solid var(--bbox-brown);
     }
 
     .hero-inner {
       display: grid;
-      grid-template-columns: minmax(0, 1.04fr) minmax(320px, .8fr);
-      gap: 44px;
+      grid-template-columns: minmax(0, 1.05fr) minmax(280px, .85fr);
+      gap: 40px;
       align-items: center;
-      position: relative;
-      z-index: 1;
     }
 
     .hero-eyebrow {
       display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--bbox-black);
+      background: var(--bbox-brown);
       color: var(--bbox-yellow);
       font-size: 12px;
       font-weight: 900;
-      letter-spacing: 1.5px;
-      padding: 7px 15px;
+      letter-spacing: 1.4px;
+      padding: 7px 14px;
       border-radius: 999px;
-      margin-bottom: 20px;
-      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero-kicker {
+      font-family: 'Black Han Sans', sans-serif;
+      font-size: clamp(22px, 4vw, 32px);
+      color: var(--bbox-brown);
+      margin-bottom: 6px;
+      letter-spacing: -.5px;
     }
 
     .hero-title {
       font-family: 'Black Han Sans', sans-serif;
-      font-size: clamp(70px, 13vw, 128px);
-      color: var(--bbox-white);
-      line-height: .86;
-      letter-spacing: -2.5px;
-      text-shadow: 4px 4px 0 var(--bbox-black);
-      margin-bottom: 14px;
-    }
-
-    .hero-sub {
-      font-family: 'Black Han Sans', sans-serif;
-      font-size: clamp(28px, 5vw, 48px);
-      color: var(--bbox-yellow);
-      letter-spacing: -1px;
-      margin-bottom: 10px;
-    }
-
-    .hero-tagline {
-      display: inline-flex;
-      background: var(--bbox-blue);
-      color: var(--bbox-white);
-      border: 2px solid var(--bbox-black);
-      border-radius: 14px;
-      padding: 10px 16px;
-      font-size: clamp(16px, 2.6vw, 22px);
-      font-weight: 900;
+      font-size: clamp(42px, 8vw, 72px);
+      line-height: .92;
+      letter-spacing: -1.5px;
       margin-bottom: 18px;
-      box-shadow: 6px 6px 0 rgba(26, 26, 26, .22);
+      color: var(--bbox-brown);
+    }
+
+    .hero-highlight {
+      display: inline-block;
+      color: var(--bbox-red);
+      font-family: 'Black Han Sans', sans-serif;
+      font-size: clamp(28px, 5vw, 44px);
+      line-height: 1.1;
+      margin-bottom: 14px;
     }
 
     .hero-info {
       display: inline-flex;
-      background: var(--bbox-white);
-      border: 2px solid var(--bbox-black);
-      border-radius: 16px;
-      padding: 13px 18px;
+      flex-wrap: wrap;
+      gap: 8px 10px;
+      margin-bottom: 18px;
+    }
+
+    .hero-chip {
+      background: var(--bbox-yellow);
+      border: 2px solid var(--bbox-brown);
+      border-radius: 12px;
+      padding: 10px 14px;
       font-weight: 900;
-      line-height: 1.5;
-      margin-bottom: 24px;
-      box-shadow: 6px 6px 0 rgba(26, 26, 26, .18);
+      font-size: 14px;
+      box-shadow: 4px 4px 0 rgba(58, 42, 31, .15);
+    }
+
+    .hero-chip.red {
+      background: var(--bbox-red);
+      color: #fff;
     }
 
     .hero-desc {
-      color: rgba(255, 253, 246, .92);
-      font-size: clamp(16px, 2.8vw, 20px);
-      line-height: 1.75;
+      font-size: clamp(16px, 2.4vw, 19px);
+      line-height: 1.7;
       font-weight: 700;
+      color: var(--bbox-muted);
+      margin-bottom: 16px;
+      max-width: 540px;
+    }
+
+    .hero-address {
+      font-size: 14px;
+      color: var(--bbox-muted);
       margin-bottom: 28px;
-      max-width: 560px;
+      line-height: 1.6;
     }
 
     .hero-actions {
@@ -197,33 +201,32 @@
       justify-content: center;
       gap: 8px;
       min-height: 52px;
-      padding: 15px 26px;
-      border: 2px solid var(--bbox-black);
+      padding: 14px 24px;
+      border: 2px solid var(--bbox-brown);
       border-radius: 999px;
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 900;
       text-decoration: none;
-      transition: transform .16s, box-shadow .16s;
       cursor: pointer;
-      box-shadow: 5px 5px 0 rgba(26, 26, 26, .22);
+      transition: transform .16s, box-shadow .16s;
+      box-shadow: 5px 5px 0 rgba(58, 42, 31, .18);
     }
 
-    .btn:hover { transform: translateY(-2px); box-shadow: 7px 7px 0 rgba(26, 26, 26, .22); }
-
-    .btn-primary { background: var(--bbox-black); color: var(--bbox-yellow); }
-    .btn-secondary { background: var(--bbox-white); color: var(--bbox-black); }
+    .btn:hover { transform: translateY(-2px); box-shadow: 7px 7px 0 rgba(58, 42, 31, .18); }
+    .btn-primary { background: var(--bbox-red); color: #fff; }
+    .btn-secondary { background: var(--bbox-paper); color: var(--bbox-brown); }
 
     .poster-frame {
       position: relative;
-      width: min(100%, 430px);
-      aspect-ratio: 4 / 5;
+      width: min(100%, 420px);
+      aspect-ratio: 3 / 4;
       justify-self: end;
-      border: 3px solid var(--bbox-black);
+      border: 3px solid var(--bbox-brown);
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: var(--shadow-soft), 10px 10px 0 rgba(26, 26, 26, .22);
-      background: var(--bbox-white);
-      transform: rotate(1.2deg);
+      box-shadow: var(--shadow-soft), 10px 10px 0 rgba(58, 42, 31, .18);
+      background: var(--bbox-paper);
+      transform: rotate(1deg);
     }
 
     .poster-frame img {
@@ -238,198 +241,167 @@
 
     .poster-frame img.active { opacity: 1; }
 
+    /* ── ABOUT ── */
     .about {
-      background: var(--bbox-white);
-      border-bottom: 2px solid var(--bbox-black);
-      padding: 84px 0;
+      padding: 80px 0;
+      background: var(--bbox-paper);
+      border-bottom: 2px solid var(--bbox-brown);
     }
 
     .about-copy {
       font-family: 'Noto Serif KR', serif;
       font-size: clamp(17px, 2.4vw, 21px);
       line-height: 2;
-      color: #3f3429;
-      max-width: 820px;
+      color: #4a3a2c;
+      max-width: 780px;
     }
 
-    .features {
-      padding: 74px 0 84px;
-      background:
-        linear-gradient(135deg, rgba(39, 71, 200, .09) 25%, transparent 25%) 0 0 / 26px 26px,
-        var(--bbox-cream);
-      border-bottom: 2px solid var(--bbox-black);
+    /* ── RECRUIT ── */
+    .recruit {
+      padding: 80px 0;
+      background: var(--bbox-cream);
+      border-bottom: 2px solid var(--bbox-brown);
     }
 
-    .feature-grid,
-    .zone-grid,
-    .guide-grid {
+    .recruit-grid {
       display: grid;
-      gap: 16px;
-    }
-
-    .feature-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
       margin-top: 28px;
     }
 
-    .feature-card,
-    .zone-card,
-    .guide-card {
-      background: var(--bbox-white);
-      border: 2px solid var(--bbox-black);
+    .recruit-card {
+      background: var(--bbox-paper);
+      border: 2px solid var(--bbox-brown);
       border-radius: 18px;
       padding: 24px;
-      box-shadow: 6px 6px 0 rgba(26, 26, 26, .10);
-    }
-
-    .feature-card .num,
-    .zone-count {
-      font-family: 'Black Han Sans', sans-serif;
-      color: var(--bbox-red);
-      line-height: 1;
-    }
-
-    .feature-card .num {
-      font-size: 42px;
-      margin-bottom: 12px;
-    }
-
-    .feature-card h3,
-    .zone-card h3,
-    .guide-card h3 {
-      font-size: 20px;
-      margin-bottom: 8px;
-      letter-spacing: -.3px;
-    }
-
-    .feature-card p,
-    .zone-card p,
-    .guide-card p {
-      color: var(--bbox-muted);
-      font-size: 15px;
-      line-height: 1.75;
-    }
-
-    .zones {
-      background: var(--bbox-blue);
-      color: var(--bbox-white);
-      padding: 84px 0;
-      border-bottom: 2px solid var(--bbox-black);
-    }
-
-    .zones .section-label { background: var(--bbox-yellow); color: var(--bbox-black); }
-    .zones .section-subtitle { color: rgba(255, 253, 246, .78); }
-
-    .zone-grid {
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      margin-top: 28px;
-    }
-
-    .zone-card {
-      color: var(--bbox-black);
-      min-height: 220px;
+      box-shadow: 6px 6px 0 rgba(58, 42, 31, .1);
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      gap: 10px;
+      min-height: 210px;
     }
 
-    .zone-icon {
-      width: 46px;
-      height: 46px;
-      display: grid;
-      place-items: center;
-      background: var(--bbox-cream);
-      border: 2px solid var(--bbox-black);
-      border-radius: 14px;
-      font-size: 22px;
-      margin-bottom: 16px;
+    .recruit-card .badge {
+      display: inline-flex;
+      align-self: flex-start;
+      background: var(--bbox-red);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 2px solid var(--bbox-brown);
     }
 
-    .zone-count {
-      font-size: 42px;
-      margin: 14px 0 6px;
+    .recruit-card h3 {
+      font-family: 'Black Han Sans', sans-serif;
+      font-size: 28px;
+      letter-spacing: -.5px;
+      color: var(--bbox-red);
     }
 
-    .zone-count small {
-      font-family: 'Noto Sans KR', sans-serif;
+    .recruit-card p {
+      color: var(--bbox-muted);
       font-size: 15px;
-      color: var(--bbox-black);
+      line-height: 1.7;
+      flex: 1;
     }
 
+    .recruit-card .meta {
+      font-size: 13px;
+      font-weight: 900;
+      color: var(--bbox-brown);
+    }
+
+    /* ── GUIDE ── */
     .guide {
-      padding: 84px 0;
-      background: var(--bbox-white);
-      border-bottom: 2px solid var(--bbox-black);
+      padding: 80px 0;
+      background: var(--bbox-paper);
+      border-bottom: 2px solid var(--bbox-brown);
     }
 
     .guide-grid {
+      display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
       margin-top: 28px;
     }
 
     .guide-card {
       background: var(--bbox-cream);
+      border: 2px solid var(--bbox-brown);
+      border-radius: 18px;
+      padding: 22px;
+      box-shadow: 5px 5px 0 rgba(58, 42, 31, .08);
     }
 
-    .guide-icon {
-      font-size: 32px;
-      margin-bottom: 14px;
-    }
+    .guide-icon { font-size: 28px; margin-bottom: 12px; }
+    .guide-card h3 { font-size: 18px; margin-bottom: 8px; }
+    .guide-card p { color: var(--bbox-muted); font-size: 14px; line-height: 1.7; }
 
+    /* ── FORM ── */
     .form-section {
       padding: 84px 0 92px;
       background:
-        radial-gradient(circle at 12% 10%, rgba(233, 75, 60, .22) 0 150px, transparent 152px),
-        var(--bbox-black);
-      color: var(--bbox-white);
+        radial-gradient(circle at 10% 8%, rgba(233, 75, 60, .2) 0 140px, transparent 142px),
+        var(--bbox-brown);
+      color: #fff;
     }
 
     .form-layout {
       display: grid;
-      grid-template-columns: minmax(0, .8fr) minmax(320px, 1.1fr);
+      grid-template-columns: minmax(0, .85fr) minmax(300px, 1.1fr);
       gap: 36px;
       align-items: start;
     }
 
-    .form-section .section-label { background: var(--bbox-red); color: var(--bbox-white); }
-    .form-section .section-subtitle { color: rgba(255, 253, 246, .72); }
+    .form-section .section-label { background: var(--bbox-red); color: #fff; }
+    .form-section .section-subtitle { color: rgba(255, 252, 245, .72); }
 
     .form-side-note {
-      background: rgba(255, 253, 246, .08);
-      border: 1px solid rgba(255, 253, 246, .18);
+      background: rgba(255, 252, 245, .08);
+      border: 1px solid rgba(255, 252, 245, .18);
       border-radius: 18px;
       padding: 22px;
-      color: rgba(255, 253, 246, .78);
+      color: rgba(255, 252, 245, .8);
       line-height: 1.8;
-      margin-top: 26px;
+      margin-top: 24px;
+      font-size: 14px;
+    }
+
+    .form-card {
+      background: var(--bbox-paper);
+      color: var(--bbox-brown);
+      border: 2px solid rgba(255, 252, 245, .2);
+      border-radius: 20px;
+      padding: 28px 24px;
+      box-shadow: var(--shadow-soft);
     }
 
     .capacity-status {
       background: var(--bbox-cream);
-      border: 2px solid var(--bbox-black);
+      border: 2px solid var(--bbox-brown);
       border-radius: 16px;
       padding: 16px;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .capacity-label {
       display: flex;
       justify-content: space-between;
       gap: 12px;
-      color: var(--bbox-black);
       font-size: 14px;
       font-weight: 900;
       margin-bottom: 10px;
     }
 
-    .capacity-text {
-      color: var(--bbox-red);
-    }
+    .capacity-text { color: var(--bbox-red); }
 
     .capacity-track {
       height: 12px;
-      background: rgba(26, 26, 26, .12);
-      border: 1px solid rgba(26, 26, 26, .18);
+      background: rgba(58, 42, 31, .12);
+      border: 1px solid rgba(58, 42, 31, .16);
       border-radius: 999px;
       overflow: hidden;
     }
@@ -446,24 +418,12 @@
       background: linear-gradient(90deg, var(--bbox-red), var(--bbox-yellow));
     }
 
-    .capacity-status.is-full .capacity-text {
-      color: var(--bbox-black);
-    }
-
+    .capacity-status.is-full .capacity-text { color: var(--bbox-brown); }
     .capacity-status.is-full .capacity-bar {
-      background: linear-gradient(90deg, var(--bbox-black), var(--bbox-red));
+      background: linear-gradient(90deg, var(--bbox-brown), var(--bbox-red));
     }
 
-    .form-card {
-      background: var(--bbox-white);
-      color: var(--bbox-black);
-      border: 2px solid rgba(255, 253, 246, .18);
-      border-radius: 20px;
-      padding: 30px 26px;
-      box-shadow: var(--shadow-soft);
-    }
-
-    .field { margin-bottom: 18px; }
+    .field { margin-bottom: 16px; }
 
     fieldset {
       border: 0;
@@ -490,7 +450,7 @@
       font-size: 15px;
       font-family: 'Noto Sans KR', sans-serif;
       background: var(--bbox-cream);
-      color: var(--bbox-black);
+      color: var(--bbox-brown);
       outline: none;
       transition: border-color .2s, box-shadow .2s;
     }
@@ -498,11 +458,11 @@
     .field input:focus,
     .field select:focus,
     .field textarea:focus {
-      border-color: var(--bbox-blue);
-      box-shadow: 0 0 0 3px rgba(39, 71, 200, .14);
+      border-color: var(--bbox-red);
+      box-shadow: 0 0 0 3px rgba(233, 75, 60, .14);
     }
 
-    .field textarea { min-height: 104px; resize: vertical; }
+    .field textarea { min-height: 96px; resize: vertical; }
 
     .field-row {
       display: grid;
@@ -510,14 +470,16 @@
       gap: 12px;
     }
 
+    .type-grid,
     .category-grid,
     .radio-grid {
       display: grid;
       gap: 8px;
     }
 
+    .type-grid { grid-template-columns: 1fr 1fr; }
     .category-grid { grid-template-columns: repeat(3, 1fr); }
-    .radio-grid { grid-template-columns: repeat(2, 1fr); }
+    .radio-grid { grid-template-columns: 1fr 1fr; }
 
     .choice {
       position: relative;
@@ -529,7 +491,7 @@
       background: var(--bbox-cream);
       border-radius: 12px;
       padding: 10px 8px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       text-align: center;
       cursor: pointer;
@@ -545,14 +507,16 @@
     .choice:has(input:checked) {
       background: var(--bbox-red);
       border-color: var(--bbox-red);
-      color: var(--bbox-white);
+      color: #fff;
     }
+
+    .seller-only.hidden { display: none; }
 
     .submit-btn {
       width: 100%;
       background: var(--bbox-red);
-      color: var(--bbox-white);
-      border: 2px solid var(--bbox-black);
+      color: #fff;
+      border: 2px solid var(--bbox-brown);
       border-radius: 999px;
       padding: 18px;
       font-size: 17px;
@@ -561,10 +525,10 @@
       cursor: pointer;
       margin-top: 8px;
       transition: all .15s;
-      box-shadow: 5px 5px 0 rgba(26, 26, 26, .18);
+      box-shadow: 5px 5px 0 rgba(58, 42, 31, .18);
     }
 
-    .submit-btn:hover { transform: translateY(-1px); box-shadow: 7px 7px 0 rgba(26, 26, 26, .18); }
+    .submit-btn:hover { transform: translateY(-1px); }
     .submit-btn:disabled { background: #aaa; cursor: not-allowed; transform: none; box-shadow: none; }
 
     .form-note {
@@ -581,19 +545,12 @@
       padding: 34px 10px;
     }
 
-    .success-screen .big-icon {
-      font-size: 64px;
-      margin-bottom: 16px;
-    }
-
+    .success-screen .big-icon { font-size: 64px; margin-bottom: 16px; }
     .success-screen h3 {
       font-family: 'Black Han Sans', sans-serif;
       font-size: 32px;
-      letter-spacing: -0.5px;
       margin-bottom: 10px;
-      color: var(--bbox-black);
     }
-
     .success-screen p {
       font-size: 15px;
       color: #6a5a3a;
@@ -601,8 +558,8 @@
     }
 
     footer {
-      background: var(--bbox-black);
-      color: var(--bbox-white);
+      background: var(--bbox-brown);
+      color: #fff;
       padding: 44px 0;
     }
 
@@ -610,7 +567,6 @@
       display: grid;
       grid-template-columns: 1fr 1.5fr;
       gap: 24px;
-      align-items: start;
     }
 
     .footer-title {
@@ -623,7 +579,7 @@
     .footer-info {
       display: grid;
       gap: 8px;
-      color: rgba(255, 253, 246, .72);
+      color: rgba(255, 252, 245, .72);
       font-size: 14px;
       line-height: 1.7;
     }
@@ -635,7 +591,7 @@
     }
 
     .copyright {
-      color: rgba(255, 253, 246, .32);
+      color: rgba(255, 252, 245, .32);
       font-size: 12px;
       margin-top: 18px;
     }
@@ -645,10 +601,10 @@
       bottom: 24px;
       left: 50%;
       transform: translateX(-50%) translateY(80px);
-      background: var(--bbox-black);
+      background: var(--bbox-brown);
       color: var(--bbox-yellow);
       padding: 12px 24px;
-      border: 2px solid rgba(255, 253, 246, .18);
+      border: 2px solid rgba(255, 252, 245, .18);
       border-radius: 999px;
       font-size: 14px;
       font-weight: 900;
@@ -671,51 +627,34 @@
         width: min(100%, 380px);
       }
 
-      .zone-grid,
       .guide-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
     @media (max-width: 768px) {
-      nav {
-        padding: 14px 18px;
-      }
-
-      .section-inner {
-        width: min(100% - 32px, 1120px);
-      }
+      nav { padding: 14px 18px; }
+      .section-inner { width: min(100% - 32px, 1100px); }
 
       .hero,
       .about,
-      .features,
-      .zones,
+      .recruit,
       .guide,
       .form-section {
-        padding-top: 56px;
-        padding-bottom: 60px;
-      }
-
-      .hero-inner {
-        gap: 34px;
+        padding-top: 52px;
+        padding-bottom: 56px;
       }
 
       .hero-actions,
-      .btn {
-        width: 100%;
-      }
+      .btn { width: 100%; }
 
-      .feature-grid,
-      .zone-grid,
+      .recruit-grid,
       .guide-grid,
       .field-row,
+      .type-grid,
       .category-grid,
       .radio-grid {
         grid-template-columns: 1fr;
-      }
-
-      .footer-title {
-        font-size: 28px;
       }
     }
   </style>
@@ -724,140 +663,94 @@
 
 <nav>
   <div class="nav-logo">b.<span>books</span></div>
-  <div class="nav-badge">셀러 20팀 모집</div>
+  <div class="nav-badge">2026.9.5 모집 중</div>
 </nav>
 
 <section class="hero">
   <div class="section-inner hero-inner">
     <div>
       <div class="hero-eyebrow">★ b.books presents</div>
-      <h1 class="hero-title">b.box<br>day</h1>
-      <div class="hero-sub">비박스 데이</div>
-      <div class="hero-tagline">0.1평서점 마켓 & 점주 교류회</div>
-      <div class="hero-info">2025.05.30 SAT · 10:00–15:00 / 부천 비북스</div>
+      <div class="hero-kicker">b.box day</div>
+      <h1 class="hero-title">BOOK &amp;<br>FLEA MARKET</h1>
+      <div class="hero-highlight">비박스셀러 · 경품 · 공연 · 체험</div>
+      <div class="hero-info">
+        <span class="hero-chip">2026.9.5 SAT · 10:00–15:00</span>
+        <span class="hero-chip red">셀러 18팀 모집</span>
+      </div>
       <p class="hero-desc">
-        박스 하나, 작은 서점 하나.<br>
-        100개의 서가가 거리로 나옵니다.<br>
-        책과 함께, 지금 이 순간.
+        박스 하나에 담긴 0.1평서점들이,<br>
+        매장 가득 펼쳐집니다!
+      </p>
+      <p class="hero-address">
+        📍 경기도 부천시 원미구 부천로136번길 24, 지하 02호 · 비북스
       </p>
       <div class="hero-actions">
         <a href="#apply" class="btn btn-primary">✦ 셀러 신청하기</a>
-        <a href="#about" class="btn btn-secondary">📋 행사 안내 보기</a>
+        <a href="#recruit" class="btn btn-secondary">모집 안내 보기</a>
       </div>
     </div>
 
-    <div class="poster-frame" aria-label="b.box day 행사 포스터">
-      <img src="images/posters/poster-02-bboxday.jpg" alt="b.box day 포스터" class="active" />
-      <img src="images/posters/poster-01-marketday.jpg" alt="마켓데이 포스터" />
+    <div class="poster-frame" aria-label="b.box day 9월 포스터">
+      <img src="images/posters/sept/poster-main.png" alt="b.box day BOOK &amp; FLEA MARKET" class="active" />
+      <img src="images/posters/sept/poster-seller.png" alt="비박스셀러 모집 포스터" />
+      <img src="images/posters/sept/poster-sponsor.png" alt="경품후원자 모집 포스터" />
+      <img src="images/posters/sept/poster-event.png" alt="이벤트·공연 모집 포스터" />
+      <img src="images/posters/sept/poster-class.png" alt="체험클래스 모집 포스터" />
     </div>
   </div>
 </section>
 
 <section class="about" id="about">
   <div class="section-inner">
-    <div class="section-label">about b.box day</div>
-    <h2 class="section-title">박스 하나가 마켓이 된다</h2>
-    <p class="section-subtitle">야네센 한상자 헌책시장에서 받은 영감</p>
+    <div class="section-label">about september</div>
+    <h2 class="section-title">작은 박스가 만드는<br>하루의 마켓</h2>
+    <p class="section-subtitle">BOOK &amp; FLEA MARKET · 2026.9.5</p>
     <div class="about-copy">
       <p>
-        2005년 일본 도쿄 야네센 골목에서 시작된 '한상자 헌책시장(一箱古本市)'.
-        책 한 상자면 누구나 서점 주인이 될 수 있다는 이 작은 시도는
-        20년이 지난 지금까지 거리와 사람을 잇는 명맥을 이어오고 있습니다.
+        0.1평서점의 취향을 박스 하나에 담아,
+        비북스 공간 안팎을 채우는 하루입니다.
+        책을 팔고, 소품을 나누고, 공연과 체험으로
+        점주와 손님이 함께하는 플리마켓을 만듭니다.
       </p>
       <br>
       <p>
-        0.1평서점의 '소박한 크기'는 곧 가능성의 크기입니다.
-        b.box day는 그 작은 크기를 박스 한 개로 옮겨,
-        비북스 공간 안팎을 활기차게 채우는 하루를 만듭니다.
+        이번 9월 b.box day는 셀러뿐 아니라
+        경품 후원자, 이벤트·공연, 체험클래스까지
+        열려 있습니다. 점주님의 끼와 취향을 나눠주세요.
       </p>
     </div>
   </div>
 </section>
 
-<section class="features">
+<section class="recruit" id="recruit">
   <div class="section-inner">
-    <div class="section-label">100 bookstores, 100 curations</div>
-    <h2 class="section-title">하루 동안 펼쳐지는 작은 서점들</h2>
-    <div class="feature-grid">
-      <article class="feature-card">
-        <div class="num">01</div>
-        <h3>점주 교류</h3>
-        <p>개업 이후 처음 만나는 0.1평서점 점주들의 오프라인 모임</p>
+    <div class="section-label">open call</div>
+    <h2 class="section-title">함께할 분을 모집합니다</h2>
+    <p class="section-subtitle">포스터 4종의 모집 유형</p>
+    <div class="recruit-grid">
+      <article class="recruit-card">
+        <span class="badge">18 team</span>
+        <h3>비박스셀러 모집</h3>
+        <p>점주님의 0.1평서점을 박스 하나에 담아 판매하세요! 외부 셀러도 참가 가능합니다.</p>
+        <div class="meta">도서 · 문구 · 굿즈 · 핸드메이드 · 빈티지</div>
       </article>
-      <article class="feature-card">
-        <div class="num">02</div>
-        <h3>마켓 + 교류회</h3>
-        <p>물건을 팔고, 이야기를 나누고, 동네를 채우는 하루</p>
+      <article class="recruit-card">
+        <span class="badge">경품</span>
+        <h3>경품후원자 모집</h3>
+        <p>모두 함께 즐길 수 있는 유용하고 의미있는 물품을 후원해주세요.</p>
+        <div class="meta">행사 방문객을 위한 경품 지원</div>
       </article>
-      <article class="feature-card">
-        <div class="num">03</div>
-        <h3>원미동 활성화</h3>
-        <p>작은 마켓이지만 골목과 거리에 사람이 모이는 흐름</p>
+      <article class="recruit-card">
+        <span class="badge">공연</span>
+        <h3>이벤트·공연 모집</h3>
+        <p>점주님의 끼와 유쾌함을 나눠주세요! 작은 무대와 이벤트를 함께 만듭니다.</p>
+        <div class="meta">음악 · 낭독 · 퍼포먼스 등</div>
       </article>
-      <article class="feature-card">
-        <div class="num">04</div>
-        <h3>여름 마켓 시범</h3>
-        <p>7월 외부 마켓을 위한 첫 번째 시범 운영</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="zones">
-  <div class="section-inner">
-    <div class="section-label">seller map</div>
-    <h2 class="section-title">셀러 지정 구역 (총 20개)</h2>
-    <p class="section-subtitle">비북스 매장과 1층 주차장을 잇는 다섯 개 구역</p>
-    <div class="zone-grid">
-      <article class="zone-card">
-        <div>
-          <div class="zone-icon">📍</div>
-          <h3>C동 앞 계단 구역</h3>
-        </div>
-        <div>
-          <div class="zone-count">8<small>개</small></div>
-          <p>메인 동선, 시각적 노출 최대</p>
-        </div>
-      </article>
-      <article class="zone-card">
-        <div>
-          <div class="zone-icon">🏛</div>
-          <h3>B동 앞 메인홀 테이블</h3>
-        </div>
-        <div>
-          <div class="zone-count">4<small>개</small></div>
-          <p>실내 중심 공간</p>
-        </div>
-      </article>
-      <article class="zone-card">
-        <div>
-          <div class="zone-icon">📚</div>
-          <h3>중앙홀 테이블(데스커)</h3>
-        </div>
-        <div>
-          <div class="zone-count">4<small>개</small></div>
-          <p>기존 서가 연계 공간</p>
-        </div>
-      </article>
-      <article class="zone-card">
-        <div>
-          <div class="zone-icon">🖼</div>
-          <h3>미니갤러리</h3>
-        </div>
-        <div>
-          <div class="zone-count">2<small>개</small></div>
-          <p>실내 중심 공간</p>
-        </div>
-      </article>
-      <article class="zone-card">
-        <div>
-          <div class="zone-icon">☀️</div>
-          <h3>1층 주차장 구역</h3>
-        </div>
-        <div>
-          <div class="zone-count">2<small>개</small></div>
-          <p>야외형, 별도 특색 연출 가능</p>
-        </div>
+      <article class="recruit-card">
+        <span class="badge">3 team</span>
+        <h3>체험클래스 모집</h3>
+        <p>세미나실을 활용한 드로잉, 미니북·인형만들기 등 유/무료 체험클래스를 개최하실 분.</p>
+        <div class="meta">점주님이 좋아하고 잘하는 것을 함께 나눠주세요!</div>
       </article>
     </div>
   </div>
@@ -866,37 +759,22 @@
 <section class="guide">
   <div class="section-inner">
     <div class="section-label">seller guide</div>
-    <h2 class="section-title">셀러 준비 사항</h2>
+    <h2 class="section-title">셀러 준비 안내</h2>
     <div class="guide-grid">
       <article class="guide-card">
         <div class="guide-icon">📦</div>
-        <h3>박스</h3>
-        <p>우체국 택배박스 6호(520×480mm), 높이 약 20cm / 종이박스·플라스틱박스 자유롭게 준비</p>
-      </article>
-      <article class="guide-card">
-        <div class="guide-icon">📚</div>
-        <h3>판매 상품</h3>
-        <p>기존 서가의 도서 및 비도서(문구, 굿즈 등)</p>
-      </article>
-      <article class="guide-card">
-        <div class="guide-icon">📅</div>
-        <h3>상품 입고</h3>
-        <p>행사 전까지 서가 입고 완료 필수</p>
+        <h3>박스 하나</h3>
+        <p>0.1평서점의 도서·비도서를 박스에 담아 지정 구역에 진열합니다.</p>
       </article>
       <article class="guide-card">
         <div class="guide-icon">🛒</div>
-        <h3>판매 방식</h3>
-        <p>박스에 담아 지정 구역에 진열 후 직접 판매</p>
+        <h3>직접 판매</h3>
+        <p>당일 직접 판매하며, 현행 0.1평서점 수수료 시스템을 동일 적용합니다.</p>
       </article>
       <article class="guide-card">
-        <div class="guide-icon">💰</div>
-        <h3>수수료</h3>
-        <p>현행 0.1평서점 수수료 시스템 동일 적용</p>
-      </article>
-      <article class="guide-card">
-        <div class="guide-icon">✋</div>
-        <h3>주의사항</h3>
-        <p>지정 구역 외 임의 판매 공간 설치 불가, 외부 셀러(비도서·F&B) 사전 협의 필수</p>
+        <div class="guide-icon">🤝</div>
+        <h3>외부 셀러 OK</h3>
+        <p>외부 셀러(비도서·F&amp;B 포함)도 사전 신청·협의 후 참가할 수 있습니다.</p>
       </article>
     </div>
   </div>
@@ -905,20 +783,22 @@
 <section class="form-section" id="apply">
   <div class="section-inner form-layout">
     <div>
-      <div class="section-label">seller application</div>
-      <h2 class="section-title">셀러 신청하기</h2>
-      <p class="section-subtitle">선착순 20팀 모집 · 마감 전에 빠르게 신청하세요</p>
+      <div class="section-label">application</div>
+      <h2 class="section-title">신청하기</h2>
+      <p class="section-subtitle">셀러 · 경품 · 공연 · 체험클래스</p>
       <div class="form-side-note">
         신청 정보는 검토 후 개별 연락드립니다.<br>
-        제출된 신청서는 구글 시트로 접수됩니다.
+        제출된 신청서는 구글 시트로 접수됩니다.<br><br>
+        일시: 2026.9.5 (토) 10:00–15:00<br>
+        장소: 부천 비북스 (부천로136번길 24, 지하 02호)
       </div>
     </div>
 
     <div class="form-card">
       <div class="capacity-status" id="capacityStatus" aria-live="polite">
         <div class="capacity-label">
-          <span>모집 현황</span>
-          <span class="capacity-text" id="capacityText">현재 - / 20팀 신청</span>
+          <span>셀러 모집 현황</span>
+          <span class="capacity-text" id="capacityText">현재 - / 18팀 신청</span>
         </div>
         <div class="capacity-track" aria-hidden="true">
           <div class="capacity-bar" id="capacityBar"></div>
@@ -935,13 +815,23 @@
       </div>
 
       <form id="applyForm">
+        <fieldset class="field">
+          <legend class="legend-label">신청 유형 *</legend>
+          <div class="type-grid">
+            <label class="choice"><input type="radio" name="applyType" value="비박스셀러" checked required />비박스셀러</label>
+            <label class="choice"><input type="radio" name="applyType" value="경품후원자" />경품후원자</label>
+            <label class="choice"><input type="radio" name="applyType" value="이벤트·공연" />이벤트·공연</label>
+            <label class="choice"><input type="radio" name="applyType" value="체험클래스" />체험클래스</label>
+          </div>
+        </fieldset>
+
         <div class="field-row">
           <div class="field">
             <label for="f_shop">0.1평서점명 또는 셀러명 *</label>
             <input type="text" id="f_shop" placeholder="예) 작은 파랑 서점" required />
           </div>
           <div class="field">
-            <label for="f_owner">점주 성함 *</label>
+            <label for="f_owner">성함 *</label>
             <input type="text" id="f_owner" placeholder="홍길동" required />
           </div>
         </div>
@@ -957,8 +847,8 @@
           </div>
         </div>
 
-        <fieldset class="field">
-          <legend class="legend-label">판매 예정 품목 카테고리 * (복수 선택 가능)</legend>
+        <fieldset class="field seller-only" id="categoryField">
+          <legend class="legend-label">판매 예정 품목 * (복수 선택)</legend>
           <div class="category-grid">
             <label class="choice"><input type="checkbox" name="category" value="도서" />도서</label>
             <label class="choice"><input type="checkbox" name="category" value="문구" />문구</label>
@@ -969,16 +859,14 @@
           </div>
         </fieldset>
 
-        <div class="field-row">
+        <div class="field-row seller-only" id="zoneRow">
           <div class="field">
             <label for="f_zone">희망 구역</label>
             <select id="f_zone">
               <option>상관없음</option>
-              <option>C동 앞 계단</option>
-              <option>B동 앞 메인홀</option>
-              <option>중앙홀</option>
-              <option>미니갤러리</option>
-              <option>1층 주차장</option>
+              <option>매장 내</option>
+              <option>야외/주차장</option>
+              <option>세미나실(체험)</option>
             </select>
           </div>
           <div class="field">
@@ -990,24 +878,21 @@
           </div>
         </div>
 
-        <fieldset class="field">
-          <legend class="legend-label">외부 셀러 여부 *</legend>
+        <fieldset class="field seller-only" id="sellerTypeField">
+          <legend class="legend-label">셀러 유형 *</legend>
           <div class="radio-grid">
-            <label class="choice"><input type="radio" name="sellerType" value="0.1평서점 점주" required />0.1평서점 점주</label>
+            <label class="choice"><input type="radio" name="sellerType" value="0.1평서점 점주" checked />0.1평서점 점주</label>
             <label class="choice"><input type="radio" name="sellerType" value="외부 셀러" />외부 셀러</label>
           </div>
         </fieldset>
 
         <div class="field">
-          <label for="f_request">추가 요청사항 (선택)</label>
-          <textarea id="f_request" placeholder="희망 구역 사유, 판매 품목 특이사항, 전기 사용 여부 등을 알려주세요."></textarea>
+          <label for="f_request" id="noteLabel">추가 요청사항 (선택)</label>
+          <textarea id="f_request" placeholder="판매 품목 소개, 경품 내용, 공연/클래스 소개 등을 자유롭게 적어주세요."></textarea>
         </div>
 
         <button type="submit" class="submit-btn" id="submitBtn">신청서 제출하기</button>
-
-        <p class="form-note">
-          신청 정보는 검토 후 개별 연락드립니다.
-        </p>
+        <p class="form-note">신청 정보는 검토 후 개별 연락드립니다.</p>
       </form>
     </div>
   </div>
@@ -1017,14 +902,15 @@
   <div class="section-inner footer-grid">
     <div>
       <div class="footer-title">b.box day</div>
-      <p class="copyright">© 2025 b.books</p>
+      <p class="copyright">© 2026 b.books</p>
     </div>
     <div class="footer-info">
       <p><strong>행사 전반 문의</strong> 비북스 써든리 매니저</p>
       <p>이메일 <a href="mailto:joyfulldeivery@naver.com">joyfulldeivery@naver.com</a></p>
       <p>전화 <a href="tel:010-6663-4850">010-6663-4850</a></p>
-      <p>인스타 DM <a href="https://www.instagram.com/b_books2026" target="_blank" rel="noreferrer">@b_books2026</a> (실제 계정 확인 후 수정)</p>
+      <p>인스타 DM <a href="https://www.instagram.com/b_books2026" target="_blank" rel="noreferrer">@b_books2026</a></p>
       <p>카카오톡 채널 안내: b.books 채널로 문의해주세요.</p>
+      <p><a href="may.html">← 5월 b.box day 아카이브</a></p>
     </div>
   </div>
 </footer>
@@ -1032,8 +918,9 @@
 <div class="toast" id="toast"></div>
 
 <script>
+  // 동일 구글 시트(16wwnZPAhANy4PictcYA02Qe1E-Si7Q5HqE4RCvqlJmU)에 연결된 Apps Script
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyrb6G2rm0FchLZj2mIDvg5WmbLJtPw2auMdv-eWAGifG___cmloqghme1uFSjyOOQp/exec';
-  const DEFAULT_CAPACITY = 20;
+  const DEFAULT_CAPACITY = 18;
 
   const posters = document.querySelectorAll('.poster-frame img');
   let activePoster = 0;
@@ -1052,22 +939,57 @@
     });
   });
 
+  const applyTypeInputs = document.querySelectorAll('input[name="applyType"]');
+  const noteLabel = document.getElementById('noteLabel');
+  const noteField = document.getElementById('f_request');
+
+  function syncApplyTypeUI() {
+    const type = document.querySelector('input[name="applyType"]:checked')?.value || '비박스셀러';
+    const isSeller = type === '비박스셀러';
+    document.querySelectorAll('.seller-only').forEach(el => {
+      el.classList.toggle('hidden', !isSeller);
+    });
+
+    if (type === '경품후원자') {
+      noteLabel.textContent = '후원 물품 소개 *';
+      noteField.placeholder = '후원하실 경품 품목과 수량, 전달 가능 일정을 알려주세요.';
+      noteField.required = true;
+    } else if (type === '이벤트·공연') {
+      noteLabel.textContent = '공연/이벤트 소개 *';
+      noteField.placeholder = '공연·이벤트 내용, 소요 시간, 필요 장비를 알려주세요.';
+      noteField.required = true;
+    } else if (type === '체험클래스') {
+      noteLabel.textContent = '클래스 소개 *';
+      noteField.placeholder = '클래스 주제(드로잉, 미니북, 인형만들기 등), 유/무료, 정원, 준비물을 알려주세요.';
+      noteField.required = true;
+    } else {
+      noteLabel.textContent = '추가 요청사항 (선택)';
+      noteField.placeholder = '판매 품목 소개, 희망 구역 사유 등을 자유롭게 적어주세요.';
+      noteField.required = false;
+    }
+  }
+
+  applyTypeInputs.forEach(input => input.addEventListener('change', syncApplyTypeUI));
+  syncApplyTypeUI();
+
   loadCapacity();
 
   document.getElementById('applyForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const form = e.currentTarget;
+    const applyType = form.querySelector('input[name="applyType"]:checked')?.value || '비박스셀러';
     const categories = [...form.querySelectorAll('input[name="category"]:checked')].map(input => input.value);
-    const sellerType = form.querySelector('input[name="sellerType"]:checked');
+    const sellerTypeInput = form.querySelector('input[name="sellerType"]:checked');
     const submitBtn = document.getElementById('submitBtn');
+    const note = document.getElementById('f_request').value.trim();
 
     if (!form.checkValidity()) {
       form.reportValidity();
       return;
     }
 
-    if (categories.length === 0) {
+    if (applyType === '비박스셀러' && categories.length === 0) {
       showToast('판매 예정 품목을 하나 이상 선택해주세요.');
       return;
     }
@@ -1080,11 +1002,21 @@
       ownerName: document.getElementById('f_owner').value.trim(),
       phone: document.getElementById('f_phone').value.trim(),
       email: document.getElementById('f_email').value.trim(),
-      categories: categories.join(', '),
-      zone: document.getElementById('f_zone').value,
-      boxCount: document.getElementById('f_boxes').value,
-      sellerType: sellerType ? sellerType.value : '',
-      note: document.getElementById('f_request').value.trim(),
+      categories: applyType === '비박스셀러'
+        ? categories.join(', ')
+        : applyType,
+      zone: applyType === '비박스셀러'
+        ? document.getElementById('f_zone').value
+        : applyType,
+      boxCount: applyType === '비박스셀러'
+        ? document.getElementById('f_boxes').value
+        : '-',
+      sellerType: applyType === '비박스셀러'
+        ? (sellerTypeInput ? sellerTypeInput.value : '')
+        : applyType,
+      note: applyType === '비박스셀러'
+        ? note
+        : `[${applyType}] ${note}`,
     };
 
     try {
@@ -1123,7 +1055,6 @@
     try {
       const response = await fetch(SCRIPT_URL);
       if (!response.ok) return;
-
       const data = await response.json();
       updateCapacity(Number(data.count) || 0, Number(data.capacity) || DEFAULT_CAPACITY);
     } catch (err) {
@@ -1135,23 +1066,20 @@
     const status = document.getElementById('capacityStatus');
     const text = document.getElementById('capacityText');
     const bar = document.getElementById('capacityBar');
-    const submitBtn = document.getElementById('submitBtn');
-    const safeCapacity = capacity > 0 ? capacity : DEFAULT_CAPACITY;
-    const percent = Math.min((count / safeCapacity) * 100, 100);
+    const displayCapacity = DEFAULT_CAPACITY;
+    const percent = Math.min((count / displayCapacity) * 100, 100);
 
     status.classList.toggle('is-urgent', percent >= 80 && percent < 100);
     status.classList.toggle('is-full', percent >= 100);
-    text.textContent = percent >= 100 ? '마감되었습니다' : `현재 ${count} / ${safeCapacity}팀 신청`;
+    text.textContent = percent >= 100
+      ? `현재 ${count} / ${displayCapacity}팀 · 정원 초과 (검토 중)`
+      : `현재 ${count} / ${displayCapacity}팀 신청`;
     bar.style.width = `${percent}%`;
-
-    if (percent >= 100) {
-      submitBtn.disabled = true;
-      submitBtn.textContent = '마감되었습니다';
-    }
   }
 
   function showSuccess() {
     document.getElementById('applyForm').style.display = 'none';
+    document.getElementById('capacityStatus').style.display = 'none';
     document.getElementById('successScreen').style.display = 'block';
   }
 
