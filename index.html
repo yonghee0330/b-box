@@ -568,6 +568,26 @@
       color: #fff;
     }
 
+    .choice small {
+      display: block;
+      margin-top: 2px;
+      font-size: 11px;
+      font-weight: 900;
+      opacity: .85;
+    }
+
+    .fee-note {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: var(--bbox-cream);
+      border: 2px dashed #d8c9ad;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.6;
+      color: var(--bbox-brown);
+    }
+
     .seller-only.hidden { display: none; }
 
     .submit-btn {
@@ -846,7 +866,7 @@
       <article class="guide-card">
         <div class="guide-icon">🤝</div>
         <h3>외부 셀러 OK</h3>
-        <p>외부 셀러(비도서·F&amp;B 포함)도 사전 신청·협의 후 참가할 수 있습니다.</p>
+        <p>외부 셀러(비도서·F&amp;B 포함)도 사전 신청·협의 후 참가할 수 있습니다. 점주는 무료, 외부 셀러는 회비 1만원입니다.</p>
       </article>
     </div>
   </div>
@@ -862,7 +882,8 @@
         신청 정보는 검토 후 개별 연락드립니다.<br>
         제출된 신청서는 구글 시트로 접수됩니다.<br><br>
         일시: 2026.9.5 (토) 10:00–15:00<br>
-        장소: 부천 비북스 (부천로136번길 24, 지하 02호)
+        장소: 부천 비북스 (부천로136번길 24, 지하 02호)<br><br>
+        셀러 회비: 점주 무료 · 외부 셀러 1만원
       </div>
     </div>
 
@@ -953,9 +974,10 @@
         <fieldset class="field seller-only" id="sellerTypeField">
           <legend class="legend-label">셀러 유형 *</legend>
           <div class="radio-grid">
-            <label class="choice"><input type="radio" name="sellerType" value="0.1평서점 점주" checked />0.1평서점 점주</label>
-            <label class="choice"><input type="radio" name="sellerType" value="외부 셀러" />외부 셀러</label>
+            <label class="choice"><input type="radio" name="sellerType" value="0.1평서점 점주" checked />0.1평서점 점주<small>회비 무료</small></label>
+            <label class="choice"><input type="radio" name="sellerType" value="외부 셀러" />외부 셀러<small>회비 1만원</small></label>
           </div>
+          <p class="fee-note" id="feeNote">점주 참가비는 무료입니다.</p>
         </fieldset>
 
         <div class="field">
@@ -1070,6 +1092,20 @@
   applyTypeInputs.forEach(input => input.addEventListener('change', syncApplyTypeUI));
   syncApplyTypeUI();
 
+  const feeNote = document.getElementById('feeNote');
+  function syncFeeNote() {
+    const sellerType = document.querySelector('input[name="sellerType"]:checked')?.value;
+    if (sellerType === '외부 셀러') {
+      feeNote.textContent = '외부 셀러 회비는 1만원입니다. 선정 후 입금 안내를 드립니다.';
+    } else {
+      feeNote.textContent = '점주 참가비는 무료입니다.';
+    }
+  }
+  document.querySelectorAll('input[name="sellerType"]').forEach(input => {
+    input.addEventListener('change', syncFeeNote);
+  });
+  syncFeeNote();
+
   loadCapacity();
 
   document.getElementById('applyForm').addEventListener('submit', async (e) => {
@@ -1095,6 +1131,12 @@
     submitBtn.disabled = true;
     submitBtn.textContent = '접수 중...';
 
+    const sellerTypeValue = sellerTypeInput ? sellerTypeInput.value : '';
+    const feeLabel = sellerTypeValue === '외부 셀러' ? '회비 1만원' : '무료';
+    const sellerNote = applyType === '비박스셀러'
+      ? [note, `회비: ${feeLabel}`].filter(Boolean).join(' / ')
+      : `[${applyType}] ${note}`;
+
     const data = {
       storeName: document.getElementById('f_shop').value.trim(),
       ownerName: document.getElementById('f_owner').value.trim(),
@@ -1110,11 +1152,9 @@
         ? document.getElementById('f_boxes').value
         : '-',
       sellerType: applyType === '비박스셀러'
-        ? (sellerTypeInput ? sellerTypeInput.value : '')
+        ? `${sellerTypeValue} (${feeLabel})`
         : applyType,
-      note: applyType === '비박스셀러'
-        ? note
-        : `[${applyType}] ${note}`,
+      note: sellerNote,
     };
 
     try {
